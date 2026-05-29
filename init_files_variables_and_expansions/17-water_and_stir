@@ -1,10 +1,2 @@
 #!/bin/bash
-declare -A water=(["w"]=0 ["a"]=1 ["t"]=2 ["e"]=3 ["r"]=4)
-declare -A stir=(["s"]=0 ["t"]=1 ["i"]=2 ["r"]=3 ["."]=4)
-w=0; for ((i=0;i<${#WATER};i++)); do w=$((w*5+${water[${WATER:$i:1}]})); done
-s=0; for ((i=0;i<${#STIR};i++)); do s=$((s*5+${stir[${STIR:$i:1}]})); done
-total=$((w+s))
-declare -A bestchol=(["b"]=0 ["e"]=1 ["s"]=2 ["t"]=3 ["c"]=4 ["h"]=5 ["o"]=6 ["l"]=7)
-chars=(b e s t c h o l)
-result=""
-while [ $total -gt 0 ]; do result="${chars[$((total
+echo $(printf "%o" $(( $(printf "%d" $(echo "obase=10;ibase=5;$(echo $WATER | tr 'water' '01234')" | tr -d '\n')) + $(printf "%d" $(echo "obase=10;ibase=5;$(echo $STIR | tr 'stir.' '01234')" | tr -d '\n')) )) | tr '01234567' 'bestchol')
