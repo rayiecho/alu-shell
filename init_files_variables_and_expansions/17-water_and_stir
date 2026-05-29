@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $(printf "%o" $(( $(printf "%d" $(echo "obase=10;ibase=5;$(echo $WATER | tr 'water' '01234')" | tr -d '\n')) + $(printf "%d" $(echo "obase=10;ibase=5;$(echo $STIR | tr 'stir.' '01234')" | tr -d '\n')) )) | tr '01234567' 'bestchol')
+echo $(printf "%o" $(($(printf "%d\n" 0x$(echo $WATER | tr 'water' '01234' | tr -d '\n')) + $(printf "%d\n" 0x$(echo $STIR | tr 'stir.' '01234' | tr -d '\n'))))) | tr '01234567' 'bestchol'
