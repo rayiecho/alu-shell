@@ -1,0 +1,2 @@
+#!/bin/bash
+echo "obase=5; $(( $(echo "ibase=$(echo $WATER | tr -cd 'a-e' | wc -c | awk '{print NR}')5; $WATER" | bc) + $(echo "ibase=5; $STIR" | bc) ))" | bc
